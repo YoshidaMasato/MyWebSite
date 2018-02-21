@@ -10,8 +10,8 @@
 		<meta name="keywords" content="" />
 
 	    <link rel="stylesheet" href="css/common.css" type="text/css" />
-	    <script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
+	    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 	    <title>株式会社アップアンドアップス</title>
 	</head>
@@ -27,19 +27,20 @@
 				アップアンドアップスは声優、俳優、MCのマネジメントを行っている声優プロダクションです。
 				</p>
 			</div><!-- /#header-->
+
 			<div id="menu">
-				<ul>
+				<ul class="dropdown">
 					<li><a href="index.html" class="on">ホーム</a></li>
 
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">所属タレント</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
-					    </div>
+					<li>
+						<a class="dropdown" href="talent.html">所属タレント</a>
+						<ul>
+							<a class="dropdown-item" href="talentSearch.html">検索</a>
+							<a class="dropdown-item" href="#">男性タレント</a>
+							<a class="dropdown-item" href="#">女性タレント</a>
+							<a class="dropdown-item" href="#">新人男性</a>
+							<a class="dropdown-item" href="#">新人女性</a>
+					    </ul>
 				    </li>
 
 					<li><a href="#">705R-FM</a></li>
@@ -48,6 +49,39 @@
 					<li><a href="#">お問い合わせ</a></li>
 				</ul>
 			</div><!-- /#menu-->
+
+<ul class="ddmenu">
+   <li><a href="#">HOME</a></li>
+   <li><a href="#">ニュース</a>
+      <ul>
+         <li><a href="#">新製品</a></li>
+         <li><a href="#">新サービス</a></li>
+         <li><a href="#">弊社について</a></li>
+      </ul>
+   </li>
+   <li><a href="#">製品・技術</a>
+      <ul>
+         <li><a href="#">ハードウェア</a></li>
+         <li><a href="#">ソフトウェア</a></li>
+         <li><a href="#">ウェブサービス</a></li>
+      </ul>
+   </li>
+   <li><a href="#">会社情報</a>
+      <ul>
+         <li><a href="#">会社概要</a></li>
+         <li><a href="#">社長挨拶</a></li>
+         <li><a href="#">沿革</a></li>
+         <li><a href="#">所在地</a></li>
+      </ul>
+   </li>
+   <li><a href="#">お問い合わせ</a>
+      <ul>
+         <li><a href="#">よくあるご質問</a></li>
+         <li><a href="#">お問い合わせ先</a></li>
+      </ul>
+   </li>
+</ul>
+
 			<div id="contents">
 				<h2>制作者より</h2>
 				<p>

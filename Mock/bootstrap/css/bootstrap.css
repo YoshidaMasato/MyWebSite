@@ -3279,7 +3279,7 @@ tbody.collapse.show {
 .dropdown-item:hover, .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #f8f9fa;
+  background-color: #eaeaea;
 }
 
 .dropdown-item.active, .dropdown-item:active {
@@ -3874,10 +3874,12 @@ tbody.collapse.show {
   border: 1px solid transparent;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  color: #495057;
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
+  background-color: #eaeaea;
 }
 
 .nav-tabs .nav-link.disabled {

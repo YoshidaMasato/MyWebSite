@@ -4,32 +4,30 @@ hr {
   border-color: silver; /* 色 */
 }
 
-p {
-    width: 250px;
-}
-.right {
-    margin-left: auto;
+.continer-fluid{
+    background: -webkit-linear-gradient(left,aqua 50%, #fff 50%);
+    background: linear-gradient(to right,aqua 50%, #fff 50%);
 }
 
-/* 隣接する線を重ねて表示 */
-.table-css {
-    border-collapse: collapse;
+@media only screen and (min-width : 768px) {
+    /* デスクトップ表示ではホバー操作でドロップダウンを表示 */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
 }
 
-/* 上部と左側の線のみ非表示。下部と右側は残っている */
-.td-css11 {
-    border: 1px solid black;
-    border-top-style:none;
-    border-left-style:none;
-}
 
-/* 上下左右すべての線を非表示 */
-.td-css13 {
-    border-style:none;
-}
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
+});
 
-/* すべての線を表示 */
-.td-css {
-    border: 1px solid black;
-}
 
+twttr.widgets.createTimeline(
+  {
+    sourceType: "profile",
+    screenName: "TwitterDev"
+  },
+  document.getElementById("container")
+);

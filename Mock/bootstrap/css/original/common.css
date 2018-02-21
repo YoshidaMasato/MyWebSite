@@ -1,13 +1,9 @@
 hr {
-  border-width: 3px 0 0 0; /* 太さ */
+  border-width: 1px 0 0 0; /* 太さ */
   border-style: solid; /* 種類 */
   border-color: silver; /* 色 */
 }
 
-.continer-fluid{
-    background: -webkit-linear-gradient(left,aqua 50%, #fff 50%);
-    background: linear-gradient(to right,aqua 50%, #fff 50%);
-}
 
 @media only screen and (min-width : 768px) {
     /* デスクトップ表示ではホバー操作でドロップダウンを表示 */
@@ -16,18 +12,29 @@ hr {
     }
 }
 
-
 $('.dropdown-toggle').click(function() {
     var location = $(this).attr('href');
     window.location.href = location;
     return false;
 });
 
+form{
+    width:500px;
+    margin:0 auto;
+}
+.search {
+    padding:6px 15px 6px 30px;
+    margin:3px;
+    background: url('../../images/btn4.gif') no-repeat 8px 6px;
+}
 
-twttr.widgets.createTimeline(
-  {
-    sourceType: "profile",
-    screenName: "TwitterDev"
-  },
-  document.getElementById("container")
-);
+.rounded {
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+}
+
+.lighter input[type=text]{
+    border:1px solid #d0d0d0;
+    background-color:#ffffff;
+}

@@ -1676,7 +1676,7 @@ pre code {
 .table th,
 .table td {
   padding: 0.75rem;
-  vertical-align: top;
+  vertical-align: middle;
   border-top: 1px solid #dee2e6;
 }
 
@@ -2163,8 +2163,9 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 0;
+  padding-left: 1rem;
   margin-right: 0.75rem;
+  padding-top: 0.4rem;
 }
 
 .form-check-inline .form-check-input {

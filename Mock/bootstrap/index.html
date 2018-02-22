@@ -19,12 +19,24 @@
 		<!-- ヘッダー -->
 		<div class="container" align="center">
 
-				<img alt="トップ画" src="./images/StPh01c.jpg" width="100%">
+				<script type="text/JavaScript">
+				var img = new Array();
+				img[0] = "./images/StPh01c.jpg";
+				img[1] = "./images/StPh03c.jpg";
+				img[2] = "./images/StPh04c.jpg";
+				img[3] = "./images/StPh05c.jpg";
+				img[4] = "./images/StPh06c.jpg";
+				document.write('<img src="'+img[Math.floor(Math.random()*img.length)]+'" style="width:100%;" border="0">');
+				</script>
+
+				<noscript>
+				   <img src="./images/StPh01c.jpg" alt="top画" width="100%">
+				</noscript>
 				<br>
 				<br>
 
 				<div>
-					<h1><img alt="株式会社アップアンドアップス" src="./images/sitetitle2.png" width="70%"></h1>
+					<h1><a href="index.html"><img alt="株式会社アップアンドアップス" src="./images/sitetitle2.png" width="70%"></a></h1>
 					<p class="text-secondary">
 						<span class="align-text-bottom">
 							<font size="2pt">アップアンドアップスは声優、俳優、MCのマネジメントを行っている声優プロダクションです。</font>
@@ -56,7 +68,7 @@
 				    <a class="nav-link" href="company.html">会社概要</a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link disabled" href="link.html">リンク</a>
+				    <a class="nav-link" href="link.html">リンク</a>
 				  </li>
 				  <li class="nav-item">
 				    <a class="nav-link" href="contact.html">お問い合わせ</a>

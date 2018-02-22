@@ -30,7 +30,7 @@
 
 				<br>
 
-				<!-- ナビバーここから -->
+				<!-- ナビバー -->
 				<ul class="nav nav-tabs">
 				  <li class="nav-item">
 				    <a class="nav-link active" href="index.html">ホーム</a>
@@ -58,37 +58,76 @@
 				    <a class="nav-link" href="contact.html">お問い合わせ</a>
 				  </li>
 				</ul>
-				<!-- ナビバーここまで -->
+				<!-- /ナビバー -->
 
 				<div class="pageTitle">
 					<img alt="ページタイトル" src="./images/headerbg2.png" width="100%">
 				</div>
-		<!-- ヘッダーここまで -->
-
+		<!-- /ヘッダー -->
 				<br>
-				<div class="text-left">
-					<form action="send_success.html" method="post">
-						<div class="form-group">
-						  <label for="exampleFormControlInput1">お名前（必須）</label>
-						  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-						</div>
-						<br>
-						<div class="form-group">
-						  <label for="exampleFormControlInput1">メールアドレス（必須）</label>
-						  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-						</div>
-						<br>
-						<div class="form-group">
-						  <label for="exampleFormControlInput1">件名（必須）</label>
-						  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-						</div>
-						<br>
-						<div class="form-group">
-						  <label for="exampleFormControlTextarea1">メッセージ本文（必須）</label>
-						  <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-						</div>
-						<button type="submit" class="btn btn-secondary">送信</button>
+
+				<!-- ログアウト -->
+				<div class="text-right">
+					<a href="login.html">
+					<img alt="" src="./images/logout.png" width="5%">
+					</a>
+				</div>
+				<!-- /ログアウト -->
+
+				<div class="lighter">
+					<form action="user_list.html" method="post">
+					    <span><input type="text" class="search rounded" placeholder="Search..."></span>
 					</form>
+				</div>
+				<p class="text-secondary">*&nbsp名前の一部で検索できます&nbsp*</p>
+
+				<hr>
+
+				<div class="row">
+				<div class="col-xl-8 offset-xl-2 col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12 offset-sm-0 col-xs-12 offset-xs-0">
+				<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+				      <th scope="col">ID</th>
+				      <th scope="col">ログインID</th>
+				      <th scope="col">名前</th>
+				      <th scope="col"></th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>matsui_naoko</td>
+				      <td>松井 菜桜子</td>
+				      <td>
+				        <a href="user_detail.html"><button type="button" class="btn btn-outline-info">参照</button></a>
+						<a href="user_update.html"><button type="button" class="btn btn-outline-primary">更新</button></a>
+						<a href="user_delete.html"><button type="button" class="btn btn-outline-danger">削除</button></a>
+					  </td>
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>arisawa_mutsuki</td>
+				      <td>有澤 睦生</td>
+				      <td>
+				        <a href="user_detail.html"><button type="button" class="btn btn-outline-info">参照</button></a>
+				        <a href="user_update.html"><button type="button" class="btn btn-outline-primary">更新</button></a>
+						<a href="user_delete.html"><button type="button" class="btn btn-outline-danger">削除</button></a>
+					  </td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>ushiki_masato</td>
+				      <td>牛木 理人</td>
+				      <td>
+				        <a href="user_detail.html"><button type="button" class="btn btn-outline-info">参照</button></a>
+				        <a href="user_update.html"><button type="button" class="btn btn-outline-primary">更新</button></a>
+						<a href="user_delete.html"><button type="button" class="btn btn-outline-danger">削除</button></a>
+				      </td>
+				    </tr>
+				  </tbody>
+				</table>
+				</div>
 				</div>
 
 				<!-- フッター -->

@@ -18,6 +18,7 @@ $('.dropdown-toggle').click(function() {
     return false;
 });
 
+/* 検索フォーム */
 form{
     width:500px;
     margin:0 auto;
@@ -42,4 +43,27 @@ form{
 /* フォントを変更する */
 body {
 font-family: 'メイリオ', Meiryo,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','ＭＳ Ｐゴシック','MS PGothic''MS UI Gothic','Helvetica','Arial',sans-serif;
+}
+
+a:link { color: #495057; }
+a:visited { color: #495057; }
+a:hover { color: #495057; }
+a:active { color: #495057; }
+
+th.thph {
+	border: 0px none #fff;
+	width: 300px;
+    background-color: #fff;
+    padding: 0px;
+}
+
+.mejs-container, .mejs-container .mejs-controls, .mejs-embed, .mejs-embed body {
+    background: #222;
+    clear: both;
+    position: relative;
+    background: #000;
+    font-family: Helvetica,Arial;
+    text-align: left;
+    vertical-align: top;
+    text-indent: 0;
 }

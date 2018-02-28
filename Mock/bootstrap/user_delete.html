@@ -1,53 +1,101 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" >
-    <link rel="stylesheet" href="../css/original/common.css" >
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
 
 
-    <title>Hello, world!</title>
-  </head>
+	    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	    <link rel="stylesheet" href="css/original/common.css" type="text/css"/>
 
-  <body>
+		<script src="js/jquery-3.3.1.slim.min.js"></script>
+		<script src="js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	<!-- ナビバー -->
-  	<nav class="navbar navbar-dark bg-primary">
-  		<p class="right"><font size="5" color="white">ユーザ名 さん</font></p>
-  		<a href="../index.html">
-	  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	  			ログアウト
-	  		</button>
-	  	</a>
-	</nav>
-	<!-- ナビバーここまで -->
+	    <title>所属タレント</title>
+	</head>
 
-	<div class="container"><!-- 幅固定 -->
-		<div align="center"><!-- センター寄せ -->
+	<body background="./images/005-Grunge-Paper.png">
+		<!-- ヘッダー -->
+		<div class="container" align="center">
 
+				<div>
+					<h1><a href="index.html"><img alt="株式会社アップアンドアップス" src="./images/sitetitle2.png" width="70%"></a></h1>
+					<p class="text-secondary">
+						<span class="align-text-bottom">
+							<font size="2pt">アップアンドアップスは声優、俳優、MCのマネジメントを行っている声優プロダクションです。</font>
+						</span>
+					</p>
+				</div>
 
-			<p><b><font size="6">ユーザ削除確認</font></b></p>
+				<br>
 
-			<table class="table-css" style="WIDTH: 50%">
-				<tr>
-					<td class="td-css13"><b>ログインID : id0001</b></td>
-				</tr>
-				<tr>
-					<td class="td-css13"><b>を本当に削除してよろしいでしょうか。</b></td>
-				</tr>
-			</table>
-			<br>
-			<a href="../userList.html"><button type="button" class="btn btn-primary" style="WIDTH: 120px">キャンセル</button></a>
-			<a href="../userList.html"><button type="button" class="btn btn-danger" style="WIDTH: 120px">OK</button></a>
+				<!-- ナビバー -->
+				<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a class="nav-link active" href="index.html">ホーム</a>
+				  </li>
+				  <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="talent.html" role="button" aria-haspopup="true" aria-expanded="false">所属タレント</a>
+				    <div class="dropdown-menu">
+				      <a class="dropdown-item" href="#">男性タレント</a>
+				      <a class="dropdown-item" href="#">女性タレント</a>
+				      <div class="dropdown-divider"></div>
+				      <a class="dropdown-item" href="#">新人男性</a>
+				      <a class="dropdown-item" href="#">新人女性</a>
+				    </div>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="http://705r-fm.net/">705R-FM</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="company.html">会社概要</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="contact.html">お問い合わせ</a>
+				  </li>
+				</ul>
+				<!-- /ナビバー -->
 
+				<div class="pageTitle">
+					<img alt="ページタイトル" src="./images/headerbg2.png" width="100%">
+				</div>
+		<!-- /ヘッダー -->
+				<br>
 
+				<!-- ログアウト -->
+				<div class="text-right">
+					<a href="login.html">
+					<img alt="" src="./images/logout.png" width="40px">
+					</a>
+				</div>
+				<!-- /ログアウト -->
+
+				<div class="row">
+					<div class="col-12">
+						<p>ユーザ：松井 菜桜子</p>
+						<p>を削除しますか？</p>
+					</div>
+					<div class="col-3 offset-3">
+						<form action="user_list.html" method="post">
+							<input type="submit" class="btn btn-danger" style="width: 80%" value="削除">
+							<input type="hidden" name="id" value="${user.id}">
+						</form>
+					</div>
+					<div class="col-3">
+						<a href="user_list.html">
+							<button type="button" class="btn btn-dark" style="width: 80%">キャンセル</button>
+						</a>
+					</div>
+				</div>
+
+				<!-- フッター -->
+				<br>
+				<br>
+				<hr>
+				Copyright© 2017 up and up's co.,ltd. All Rights Reserved.
 
 		</div>
-		<a href="javascript:history.back();">戻る</a>
-	</div>
-  </body>
+
+	</body>
 </html>

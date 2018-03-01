@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+
+
+	    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	    <link rel="stylesheet" href="css/original/common.css" type="text/css"/>
+	    <link rel="stylesheet" href="css/mediaelementplayer.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+		<script src="js/jquery-3.3.1.slim.min.js"></script>
+		<script src="js/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	    <title>所属タレント</title>
+	</head>
+
+	<body background="./images/005-Grunge-Paper.png">
+		<!-- ヘッダー -->
+		<div class="container" align="center">
+
+				<div>
+					<h1><a href="index.html"><img alt="株式会社アップアンドアップス" src="./images/sitetitle2.png" width="70%"></a></h1>
+					<p class="text-secondary">
+						<span class="align-text-bottom">
+							<font size="2pt">アップアンドアップスは声優、俳優、MCのマネジメントを行っている声優プロダクションです。</font>
+						</span>
+					</p>
+				</div>
+
+				<br>
+
+				<!-- ナビバー -->
+				<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a class="nav-link active" href="index.html">ホーム</a>
+				  </li>
+				  <li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="talent_list.html" role="button" aria-haspopup="true" aria-expanded="false">所属タレント</a>
+				    <div class="dropdown-menu">
+				      <a class="dropdown-item" href="#">男性タレント</a>
+				      <a class="dropdown-item" href="#">女性タレント</a>
+				      <div class="dropdown-divider"></div>
+				      <a class="dropdown-item" href="#">新人男性</a>
+				      <a class="dropdown-item" href="#">新人女性</a>
+				    </div>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="http://705r-fm.net/">705R-FM</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="company.html">会社概要</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="contact.html">お問い合わせ</a>
+				  </li>
+				</ul>
+				<!-- /ナビバー -->
+
+				<div class="pageTitle">
+					<img alt="ページタイトル" src="./images/headerbg2.png" width="100%">
+				</div>
+		<!-- /ヘッダー -->
+				<br>
+
+				<!-- ログアウト -->
+				<div class="text-right">
+					<a href="login.html">
+					<img alt="" src="./images/logout.png" width="40px">
+					</a>
+				</div>
+				<!-- /ログアウト -->
+
+				<!-- フォーム -->
+				<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<form action="voice_update.html" method="post">
+
+						<!-- ボイスサンプル -->
+						<div class="form-group row">
+						  <div class="col-sm-8 offset-sm-2">
+							  <div class="form-row">
+							    <div class="col">
+							      <input type="text" class="form-control" placeholder="タイトル">
+							    </div>
+							    <div class="col">
+							      <div class="custom-file">
+									  <input type="file" class="custom-file-input" id="customFile">
+									  <label class="custom-file-label" for="customFile"></label>
+								  </div>
+							    </div>
+							  </div>
+						  </div>
+						</div>
+
+						<!-- 送信ボタン -->
+						<button type="submit" class="btn btn-secondary">追加</button>
+					</form>
+
+					<br>
+					<br>
+
+				</div>
+				</div>
+				<!-- /フォーム -->
+
+				<!-- ボイスサンプル -->
+				<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<table class="table">
+					  <tbody>
+					    <tr>
+					      <td style="background-color: #eee">自己紹介</td>
+					      <td>
+					      	<div class="row">
+								<div class="media-wrapper col-10">
+									<audio id="player2" preload="none" controls style="max-width:100%;">
+								        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+								    </audio>
+								</div>
+								<div class="col-2">
+									<a href="voice_delete.html"><button type="button" class="btn btn-danger">削除</button></a>
+								</div>
+							</div>
+						  </td>
+					    </tr>
+					    <tr>
+					      <td style="background-color: #eee">ナレーションサンプル1</td>
+					      <td>
+					      	<div class="row">
+								<div class="media-wrapper col-10">
+									<audio id="player2" preload="none" controls style="max-width:100%;">
+								        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+								    </audio>
+								</div>
+								<div class="col-2">
+									<a href="voice_delete.html"><button type="button" class="btn btn-danger">削除</button></a>
+								</div>
+							</div>
+						  </td>
+					    </tr>
+					    <tr>
+					      <td style="background-color: #eee">テレビナレーション</td>
+					      <td>
+					      	<div class="row">
+								<div class="media-wrapper col-10">
+									<audio id="player2" preload="none" controls style="max-width:100%;">
+								        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+								    </audio>
+								</div>
+								<div class="col-2">
+									<a href="voice_delete.html"><button type="button" class="btn btn-danger">削除</button></a>
+								</div>
+							</div>
+						  </td>
+					    </tr>
+					    <tr>
+					      <td style="background-color: #eee">ラジオCM</td>
+					      <td>
+					      	<div class="row">
+								<div class="media-wrapper col-10">
+									<audio id="player2" preload="none" controls style="max-width:100%;">
+								        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+								    </audio>
+								</div>
+								<div class="col-2">
+									<a href="voice_delete.html"><button type="button" class="btn btn-danger">削除</button></a>
+								</div>
+							</div>
+						  </td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+				</div>
+				<!-- /ボイスサンプル -->
+
+				<!-- フッター -->
+				<br>
+				<br>
+				<hr>
+				Copyright© 2017 up and up's co.,ltd. All Rights Reserved.
+
+		</div>
+
+		<script src="js/mediaelement-and-player.js"></script>
+		<script src="js/ja.js"></script>
+		<script src="js/mediaelement.js"></script>
+		<script>
+			$('video, audio').mediaelementplayer({
+				// Configuration
+				success: function(media) {
+					var isNative = /html5|native/i.test(media.rendererName);
+
+					var isYoutube = ~media.rendererName.indexOf('youtube');
+
+					// etc.
+				}
+			});
+		</script>
+
+	</body>
+</html>

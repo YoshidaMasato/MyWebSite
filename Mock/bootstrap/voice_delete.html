@@ -30,7 +30,7 @@
 
 				<br>
 
-				<!-- ナビバーここから -->
+				<!-- ナビバー -->
 				<ul class="nav nav-tabs">
 				  <li class="nav-item">
 				    <a class="nav-link active" href="index.html">ホーム</a>
@@ -55,18 +55,39 @@
 				    <a class="nav-link" href="contact.html">お問い合わせ</a>
 				  </li>
 				</ul>
-				<!-- ナビバーここまで -->
+				<!-- /ナビバー -->
 
 				<div class="pageTitle">
 					<img alt="ページタイトル" src="./images/headerbg2.png" width="100%">
 				</div>
-		<!-- ヘッダーここまで -->
+		<!-- /ヘッダー -->
+				<br>
 
-				<br>
-				<br>
-				<h5>送信に成功しました。</h5>
-				<br>
-				<a href="index.html">ホーム画面</a>
+				<!-- ログアウト -->
+				<div class="text-right">
+					<a href="login.html">
+					<img alt="" src="./images/logout.png" width="40px">
+					</a>
+				</div>
+				<!-- /ログアウト -->
+
+				<div class="row">
+					<div class="col-12">
+						<p>ボイスサンプル1</p>
+						<p>を削除しますか？</p>
+					</div>
+					<div class="col-3 offset-3">
+						<form action="voice_update.html" method="post">
+							<input type="submit" class="btn btn-danger" style="width: 80%" value="削除">
+							<input type="hidden" name="id" value="${user.id}">
+						</form>
+					</div>
+					<div class="col-3">
+						<a href="voice_update.html">
+							<button type="button" class="btn btn-dark" style="width: 80%">キャンセル</button>
+						</a>
+					</div>
+				</div>
 
 				<!-- フッター -->
 				<br>

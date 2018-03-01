@@ -1,0 +1,69 @@
+hr {
+  border-width: 1px 0 0 0; /* 太さ */
+  border-style: solid; /* 種類 */
+  border-color: silver; /* 色 */
+}
+
+
+@media only screen and (min-width : 768px) {
+    /* デスクトップ表示ではホバー操作でドロップダウンを表示 */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+$('.dropdown-toggle').click(function() {
+    var location = $(this).attr('href');
+    window.location.href = location;
+    return false;
+});
+
+/* 検索フォーム */
+form{
+    width:500px;
+    margin:0 auto;
+}
+.search {
+    padding:6px 15px 6px 30px;
+    margin:3px;
+    background: url('../../images/btn4.gif') no-repeat 8px 6px;
+}
+
+.rounded {
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+}
+
+.lighter input[type=text]{
+    border:1px solid #d0d0d0;
+    background-color:#ffffff;
+}
+
+/* フォントを変更する */
+body {
+font-family: 'メイリオ', Meiryo,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','ＭＳ Ｐゴシック','MS PGothic''MS UI Gothic','Helvetica','Arial',sans-serif;
+}
+
+a:link { color: #495057; }
+a:visited { color: #495057; }
+a:hover { color: #495057; }
+a:active { color: #495057; }
+
+th.thph {
+	border: 0px none #fff;
+	width: 300px;
+    background-color: #fff;
+    padding: 0px;
+}
+
+.mejs-container, .mejs-container .mejs-controls, .mejs-embed, .mejs-embed body {
+    background: #222;
+    clear: both;
+    position: relative;
+    background: #000;
+    font-family: Helvetica,Arial;
+    text-align: left;
+    vertical-align: top;
+    text-indent: 0;
+}

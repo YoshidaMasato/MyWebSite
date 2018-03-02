@@ -1,12 +1,16 @@
 package upandups;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import beans.UserDetailDataBeans;
+import dao.UserDetailDAO;
 
 /**
  * Servlet implementation class Talent_list
@@ -27,9 +31,13 @@ public class Talent_list extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//リクエストスコープにあるid情報を取得
+		// リクエストスコープにあるsex情報を取得
 		String sex = request.getParameter("sex");
-		request.setAttribute("sex", sex);
+
+		// sex情報を元にDAOでuddbListを取得
+		ArrayList<UserDetailDataBeans> uddbList = UserDetailDAO.getUserDetailDataBeansListBySex(sex);
+		request.setAttribute("uddbList", uddbList);
+
 		request.getRequestDispatcher(UauHelper.TALENT_LIST_PAGE).forward(request, response);
 	}
 

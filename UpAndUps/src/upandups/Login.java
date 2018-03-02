@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import beans.UserDataBeans;
+import dao.UserDAO;
 
 /**
  * Servlet implementation class Login
@@ -27,6 +31,11 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("udb") != null) {
+			response.sendRedirect("User_list");
+			return;
+		}
 		request.getRequestDispatcher(UauHelper.LOGIN_PAGE).forward(request, response);
 	}
 
@@ -34,8 +43,29 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// フォームに入力された値を変数に代入
+		String login_id = request.getParameter("InputLoginId");
+		String password = request.getParameter("InputPassword");
+
+		// パスワードを暗号化
+		String passMD5 = Util.convertToMD5(password);
+
+		System.out.println(login_id);
+		System.out.println(passMD5);
+
+		// 入力された値を元にDBでユーザ検索し、ユーザ情報を取得
+		UserDataBeans udb = UserDAO.getUserDataBeansByLoginId(login_id,passMD5);
+
+		if(udb == null) {
+			// DAOからnullが返ってきたらログイン失敗
+			request.setAttribute("errMsg", "ログインIDまたはパスワードが間違っています");
+			request.getRequestDispatcher(UauHelper.LOGIN_PAGE).forward(request, response);
+		} else {
+			// ユーザ情報をセッションスコープにセットしてユーザ一覧に遷移
+			HttpSession session = request.getSession();
+			session.setAttribute("udb", udb);
+			response.sendRedirect("User_list");
+		}
 	}
 
 }

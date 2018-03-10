@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class User_delete
@@ -27,6 +28,18 @@ public class User_delete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// セッションが空の場合、ログイン画面に遷移
+		HttpSession session = request.getSession();
+		if(session.getAttribute("login_udb") == null) {
+			response.sendRedirect("Login");
+			return;
+		}
+
+		// URLが直接叩かれた場合、ログイン画面に遷移
+		if(request.getParameter("id") == null) {
+			response.sendRedirect("Login");
+			return;
+		}
 		request.getRequestDispatcher(UauHelper.USER_DELETE_PAGE).forward(request, response);
 	}
 

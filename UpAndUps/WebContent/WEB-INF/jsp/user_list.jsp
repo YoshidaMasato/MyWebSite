@@ -19,8 +19,8 @@
 			<!-- /ログアウト -->
 
 			<div class="lighter">
-				<form action="user_list.html" method="post">
-				    <span><input type="text" class="search rounded" placeholder="Search..."></span>
+				<form action="User_list" method="post">
+				    <span><input type="text" name="search_word" class="search rounded" placeholder="Search..."></span>
 				</form>
 			</div>
 			<p class="text-secondary">*&nbsp名前の一部で検索できます&nbsp*</p>
@@ -45,10 +45,26 @@
 				      <td>${udb.login_id}</td>
 				      <td>${udb.name}</td>
 				      <td>
-				        <a href="Talent_detail?id=${udb.id}"><button type="button" class="btn btn-outline-info">参照</button></a>
-						<a href="User_update?id=${udb.id}"><button type="button" class="btn btn-outline-primary">更新</button></a>
-						<a href="Voice_update?id=${udb.id}"><button type="button" class="btn btn-outline-secondary">Voice</button></a>
-						<a href="User_delete?id=${udb.id}"><button type="button" class="btn btn-outline-danger">削除</button></a>
+				      	<%-- すべてのユーザにボタン表示 --%>
+				      	<a href="Talent_detail?id=${udb.id}"><button type="button" class="btn btn-outline-info">参照</button></a>
+
+						<%-- 条件付きでボタン表示 --%>
+						<c:choose>
+							<%-- ログインユーザ自身の更新ボタン表示 --%>
+							<c:when test="${login_udb.id == udb.id}">
+								<a href="User_update?id=${udb.id}"><button type="button" class="btn btn-outline-primary">更新</button></a>
+								<a href="Voice_update?id=${udb.id}"><button type="button" class="btn btn-outline-secondary">Voice</button></a>
+							</c:when>
+							<%-- 管理者に表示 --%>
+							<c:when test="${login_udb.login_id == 'admin'}">
+								<a href="User_update?id=${udb.id}"><button type="button" class="btn btn-outline-primary">更新</button></a>
+								<a href="Voice_update?id=${udb.id}"><button type="button" class="btn btn-outline-secondary">Voice</button></a>
+							</c:when>
+						</c:choose>
+						<%-- 管理者のみに表示 --%>
+				      	<c:if test="${login_udb.login_id == 'admin'}">
+							<a href="User_delete?id=${udb.id}"><button type="button" class="btn btn-outline-danger">削除</button></a>
+						</c:if>
 					  </td>
 				    </tr>
 			    </c:forEach>

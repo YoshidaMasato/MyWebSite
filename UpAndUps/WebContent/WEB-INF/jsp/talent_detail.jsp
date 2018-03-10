@@ -21,7 +21,7 @@
 				<table class="table">
 				  <tbody>
 				    <tr>
-				      <th rowspan="10" class="thph"><img alt="" src="./images/${uddb.photo_url}"></th>
+				      <th rowspan="10" class="thph"><img alt="" src="./uploaded/${uddb.photo_url}"></th>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">名　前</td>
@@ -81,13 +81,13 @@
 				</div>
 				<table class="table">
 				  <tbody>
-				   <c:forEach var="uvdb" items="uvdbList">
+				   <c:forEach var="vsdb" items="${vsdbList}">
 					    <tr>
-					      <td style="background-color: #eee">自己紹介</td>
+					      <td style="background-color: #eee; width: 30%" class="text-center">${vsdb.title}</td>
 					      <td>
 							<div class="media-wrapper">
 								<audio id="player2" preload="none" controls style="max-width:100%;">
-							        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+							        <source src="./uploaded/${vsdb.file_url}" type="audio/wav">
 							    </audio>
 							</div>
 						  </td>

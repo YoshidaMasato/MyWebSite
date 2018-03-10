@@ -20,12 +20,11 @@
 			<!-- ログアウト -->
 			<jsp:include page="/baselayout/logout.jsp" />
 			<!-- /ログアウト -->
-
+			<p><font color=red>${errMsg}</font></p>
 			<!-- フォーム -->
 			<div class="row">
 			<div class="col-lg-8 offset-lg-2">
-				<form action="user_list.html" method="post">
-
+				<form action="User_update" method="post" enctype="multipart/form-data">
 					<!-- ログインID -->
 					<div class="form-group row">
 					  <label for="loginId" class="col-sm-4 col-form-label">ログインID</label>
@@ -64,11 +63,11 @@
 						<div class="col-sm-8 text-left">
 							<c:if test="${uddb.sex == '男'}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sex1" value="option1" checked="checked">
+								  <input class="form-check-input" type="radio" name="sex" id="sex1" value="option1" checked="checked">
 								  <label class="form-check-label" for="sex1">男</label>
 								</div>
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sex2" value="option2">
+								  <input class="form-check-input" type="radio" name="sex" id="sex2" value="option2">
 								  <label class="form-check-label" for="inlineRadio2">女</label>
 								</div>
 							</c:if>
@@ -185,7 +184,7 @@
 
 					<!-- 出身地 -->
 					<div class="form-group row">
-					  <label for="inputName" class="col-sm-4 col-form-label">出身地</label>
+					  <label for="birth_place_id" class="col-sm-4 col-form-label">出身地</label>
 					    <div class="col-sm-8 text-left">
 							<select class="form-control" name="birth_place_id">
 								<option value="0">選択してください</option>
@@ -196,7 +195,7 @@
 											<option value="${pdb.id}" selected>${pdb.name}</option>
 										</c:if>
 										<c:if test="${!prFlg}">
-											<option value="${pbd.id}">${pdb.name}</option>
+											<option value="${pdb.id}">${pdb.name}</option>
 										</c:if>
 									</c:forEach>
 								</optgroup>
@@ -210,13 +209,13 @@
 						<div class="col-sm-8 text-left">
 
 							<c:if test="${uddb.blood_type == 'A型'}" var="btFlgA" />
-							<c:if test="${flg}">
+							<c:if test="${btFlgA}">
 								<div class="form-check form-check-inline">
 								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio1" value="A型" checked="checked">
 								  <label class="form-check-label" for="inlineRadio1">A型</label>
 								</div>
 							</c:if>
-							<c:if test="${!flg}">
+							<c:if test="${!btFlgA}">
 								<div class="form-check form-check-inline">
 								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio1" value="A型">
 								  <label class="form-check-label" for="inlineRadio1">A型</label>
@@ -272,7 +271,7 @@
 					<div class="form-group row">
 					  <label for="inputName" class="col-sm-4 col-form-label">声域</label>
 					    <div class="col-sm-8 text-left">
-							<select class="form-control">
+							<select class="form-control" name="vocal_range">
 							  <option>選択してください</option>
 							  <optgroup label="--- 女声 ---">
 								<c:forEach var="vrdb" items="${vrdbList}">
@@ -427,6 +426,7 @@
 				    </div>
 
 					<br>
+					<input type="hidden" name="id" value="${uddb.id}">
 					<!-- 送信ボタン -->
 					<button type="submit" class="btn btn-secondary">送信</button>
 				</form>

@@ -29,8 +29,8 @@ public class UserDAO {
 				udb.setId(rs.getInt("id"));
 				udb.setLogin_id(rs.getString("login_id"));
 				udb.setName(rs.getString("name"));
-				udb.setCreate_date(rs.getDate("create_date"));
-				udb.setUpdate_date(rs.getDate("update_date"));
+				udb.setCreate_date(rs.getString("create_date"));
+				udb.setUpdate_date(rs.getString("update_date"));
 				return udb;
 			}
 		} catch(SQLException e) {
@@ -64,8 +64,8 @@ public class UserDAO {
 				udb.setId(rs.getInt("id"));
 				udb.setLogin_id(rs.getString("login_id"));
 				udb.setName(rs.getString("name"));
-				udb.setCreate_date(rs.getDate("create_date"));
-				udb.setUpdate_date(rs.getDate("update_date"));
+				udb.setCreate_date(rs.getString("create_date"));
+				udb.setUpdate_date(rs.getString("update_date"));
 				udbList.add(udb);
 			}
 
@@ -85,6 +85,47 @@ public class UserDAO {
 				}
 			}
 		}
+	}
+
+	public static ArrayList<UserDataBeans> getUserDataBeansByName(String search_word){
+
+		Connection con = null;
+		PreparedStatement st = null;
+
+		try {
+
+			con = DBManager.getConnection();
+			st = con.prepareStatement("SELECT * FROM user WHERE login_id NOT IN ('admin') AND name LIKE ?");
+			st.setString(1, "%" + search_word + "%");
+
+			ResultSet rs = st.executeQuery();
+			ArrayList<UserDataBeans> udbList = new ArrayList<UserDataBeans>();
+			while(rs.next()) {
+				UserDataBeans udb = new UserDataBeans();
+				udb.setId(rs.getInt("id"));
+				udb.setLogin_id(rs.getString("login_id"));
+				udb.setName(rs.getString("name"));
+				udb.setCreate_date(rs.getString("create_date"));
+				udb.setUpdate_date(rs.getString("update_date"));
+				udbList.add(udb);
+			}
+
+			return udbList;
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if(con != null) {
+				try {
+					con.close();
+				} catch(SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+
 	}
 
 }

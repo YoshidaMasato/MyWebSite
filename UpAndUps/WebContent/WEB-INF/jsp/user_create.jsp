@@ -3,11 +3,11 @@
 <!doctype html>
 <html lang="ja">
 	<head>
+	    <title>新規登録</title>
+	    <jsp:include page="/baselayout/head.html" />
 	    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.8.1/combined/js/gijgo.min.js" type="text/javascript"></script>
 	    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.8.1/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-	    <title>新規登録</title>
-	    <jsp:include page="/baselayout/head.html" />
 	</head>
 
 	<body background="./images/005-Grunge-Paper.png">

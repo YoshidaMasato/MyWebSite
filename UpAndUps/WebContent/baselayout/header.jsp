@@ -19,11 +19,9 @@
 	  <li class="nav-item dropdown">
 	    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="Talent_list?sex=all" role="button" aria-haspopup="true" aria-expanded="false">所属タレント</a>
 	     <div class="dropdown-menu">
-	      <a class="dropdown-item" href="Talent_list?sex=male">男性タレント</a>
-	      <a class="dropdown-item" href="Talent_list_sex=female">女性タレント</a>
+	      <a class="dropdown-item" href="Talent_list?sex=男">男性タレント</a>
+	      <a class="dropdown-item" href="Talent_list?sex=女">女性タレント</a>
 	      <div class="dropdown-divider"></div>
-	      <a class="dropdown-item" href="#">新人男性</a>
-	      <a class="dropdown-item" href="#">新人女性</a>
 	    </div>
 	  </li>
 	  <li class="nav-item">

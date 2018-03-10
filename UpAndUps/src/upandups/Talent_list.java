@@ -31,6 +31,12 @@ public class Talent_list extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// URLが直接叩かれた場合、ホーム画面に遷移
+		if(request.getParameter("sex") == null) {
+			response.sendRedirect("Index");
+			return;
+		}
+
 		// リクエストスコープにあるsex情報を取得
 		String sex = request.getParameter("sex");
 
@@ -45,8 +51,14 @@ public class Talent_list extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// 検索フォームのワードを元に部分一致検索
+		request.setCharacterEncoding("UTF-8");
+		String search_word = request.getParameter("search_word");
+		ArrayList<UserDetailDataBeans> uddbList = UserDetailDAO.getUserDetailDataBeansByName(search_word);
+		request.setAttribute("uddbList", uddbList);
+
+		request.getRequestDispatcher(UauHelper.TALENT_LIST_PAGE).forward(request, response);
+
 	}
 
 }

@@ -31,8 +31,9 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// セッションにログイン情報がある場合、ユーザ一覧画面に遷移
 		HttpSession session = request.getSession();
-		if(session.getAttribute("udb") != null) {
+		if(session.getAttribute("login_udb") != null) {
 			response.sendRedirect("User_list");
 			return;
 		}
@@ -63,7 +64,7 @@ public class Login extends HttpServlet {
 		} else {
 			// ユーザ情報をセッションスコープにセットしてユーザ一覧に遷移
 			HttpSession session = request.getSession();
-			session.setAttribute("udb", udb);
+			session.setAttribute("login_udb", udb);
 			response.sendRedirect("User_list");
 		}
 	}

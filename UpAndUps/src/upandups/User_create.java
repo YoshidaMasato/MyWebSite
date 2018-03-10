@@ -152,7 +152,7 @@ public class User_create extends HttpServlet {
 		} else {
 			//ユーザ情報をセッションスコープにセットしてユーザ一覧にリダイレクト
 			HttpSession session = request.getSession();
-			session.setAttribute("udb", udb);
+			session.setAttribute("login_udb", udb);
 			response.sendRedirect("User_list");
 		}
 

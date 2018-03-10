@@ -2,7 +2,6 @@ package beans;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class UserDataBeans implements Serializable {
 
@@ -10,8 +9,8 @@ public class UserDataBeans implements Serializable {
 	private String login_id;
 	private String password;
 	private String name;
-	private Date create_date;
-	private Date update_date;
+	private String create_date;
+	private String update_date;
 
 
 
@@ -40,16 +39,16 @@ public class UserDataBeans implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 	public String getFormatCreateDate() {

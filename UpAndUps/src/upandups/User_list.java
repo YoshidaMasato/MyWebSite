@@ -34,7 +34,7 @@ public class User_list extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// セッションが空の場合、ログイン画面に変遷
 		HttpSession session = request.getSession();
-		if(session.getAttribute("udb") == null) {
+		if(session.getAttribute("login_udb") == null) {
 			response.sendRedirect("Login");
 			return;
 		}
@@ -51,8 +51,15 @@ public class User_list extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// フォームから値を取得して、DAOでユーザデータを検索
+		request.setCharacterEncoding("UTF-8");
+		String search_word = request.getParameter("search_word");
+		ArrayList<UserDataBeans> udbList = UserDAO.getUserDataBeansByName(search_word);
+		request.setAttribute("udbList", udbList);
+
+		// ユーザ一覧にフォワード
+		request.getRequestDispatcher(UauHelper.USER_LIST_PAGE).forward(request, response);
+
 	}
 
 }

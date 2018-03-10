@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.UserDetailDataBeans;
+import dao.UserDetailDAO;
+
 /**
  * Servlet implementation class Talent_detail
  */
@@ -27,6 +30,14 @@ public class Talent_detail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// スコープのidから情報を取得して変数に代入
+		String id = request.getParameter("id");
+
+		// idを元にTalent_detailに必要な情報を取得
+		UserDetailDataBeans uddb = UserDetailDAO.getUserDetailDataBeansListById(Integer.parseInt(id));
+
+		// リクエストスコープに取得したデータをセットし、タレント詳細画面にフォワード
+		request.setAttribute("uddb", uddb);
 		request.getRequestDispatcher(UauHelper.TALENT_DETAIL_PAGE).forward(request, response);
 	}
 

@@ -1,6 +1,7 @@
 package upandups;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -8,15 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import beans.PrefecturesDataBeans;
+import beans.UserDataBeans;
+import beans.UserDetailDataBeans;
+import beans.VocalRangeDataBeans;
+import dao.PrefecturesDAO;
 import dao.UserDetailDAO;
+import dao.VocalRangeDAO;
 
 /**
  * Servlet implementation class User_create
  */
 @WebServlet("/User_create")
-@MultipartConfig(location="/tmp", maxFileSize=1048576)
+@MultipartConfig(location="/C:\\Users\\s9922\\Documents\\MyWebSite\\UpAndUps\\WebContent\\uploaded", maxFileSize=1048576)
 public class User_create extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +40,15 @@ public class User_create extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// prefecturesテーブルのリストを取得してスコープにセット
+		ArrayList<PrefecturesDataBeans> pdbList = PrefecturesDAO.getPrefecturesDataBeansAll();
+		request.setAttribute("pdbList", pdbList);
+
+		// vocal_rangeテーブルのリストを取得してスコープにセット
+		ArrayList<VocalRangeDataBeans> vrdbList = VocalRangeDAO.getVocalRangeDataBeansAll();
+		request.setAttribute("vrdbList", vrdbList);
+
+		// フォワード
 		request.getRequestDispatcher(UauHelper.USER_CREATE_PAGE).forward(request, response);
 	}
 
@@ -72,18 +89,22 @@ public class User_create extends HttpServlet {
 
 		// 画像をアップロード
 		Part part = request.getPart("photo");
-		String photo_name = this.getFileName(part);
-		part.write(getServletContext().getRealPath("/WebContent/uploaded") + "/" + photo_name);
-		response.sendRedirect("User_list");
+		String photo_name = null;
+		if(part.getSize() > 0) {
+			photo_name = this.getFileName(part);
+			part.write(photo_name);
+		} else {
+			photo_name = null;
+		}
 
 		// 値をDAOに渡してDBに登録
-		UserDetailDAO.createUser(
+		boolean create = UserDetailDAO.createUser(
 				login_id
 				, passMD5
 				, passCheckMD5
 				, name
 				, sex
-				, photo_url
+				, photo_name
 				, affiliation_form
 				, birth_date
 				, birth_place_id
@@ -100,6 +121,40 @@ public class User_create extends HttpServlet {
 				, filmographies_other
 				, cPassMD5
 				);
+
+		// 入力されていた値をBeansにセット
+		UserDataBeans udb = new UserDataBeans();
+		udb.setLogin_id(login_id);
+		udb.setName(name);
+
+		UserDetailDataBeans uddb = new UserDetailDataBeans();
+		uddb.setSex(sex);
+		uddb.setAffiliation_form(affiliation_form);
+		uddb.setBirth_date(birth_date);
+		uddb.setBirth_place_id(Integer.parseInt(birth_place_id));
+		uddb.setBlood_type(blood_type);
+		uddb.setVocal_range_id(Integer.parseInt(vocal_range_id));
+		uddb.setSpecial_skill(special_skill);
+		uddb.setHobby(hobby);
+		uddb.setLicense(license);
+		uddb.setTwitter_url(twitter_url);
+		uddb.setTwitter_id(twitter_id);
+		uddb.setFilmographies_anime(filmographies_anime);
+		uddb.setFilmographies_film(filmographies_film);
+		uddb.setFilmographies_narration(filmographies_narration);
+		uddb.setFilmographies_other(filmographies_other);
+
+		if(!create) {
+			request.setAttribute("errMsg", "入力された内容が正しくないか、未入力の必須項目があります。");
+			request.setAttribute("udb", udb);
+			request.setAttribute("uddb", uddb);
+			request.getRequestDispatcher(UauHelper.USER_CREATE_PAGE).forward(request, response);
+		} else {
+			//ユーザ情報をセッションスコープにセットしてユーザ一覧にリダイレクト
+			HttpSession session = request.getSession();
+			session.setAttribute("udb", udb);
+			response.sendRedirect("User_list");
+		}
 
 	}
 

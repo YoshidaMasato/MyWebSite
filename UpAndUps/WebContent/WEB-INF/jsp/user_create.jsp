@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
 	<head>
@@ -15,7 +16,8 @@
 			<jsp:include page="/baselayout/header.jsp" />
 		<!-- /ヘッダー -->
 			<br>
-
+			<br>
+			<p><font color=red>${errMsg}</font></p>
 			<!-- フォーム -->
 			<div class="row">
 			<div class="col-lg-8 offset-lg-2">
@@ -23,7 +25,7 @@
 
 					<!-- ログインID -->
 					<div class="form-group row">
-					  <label for="loginId" class="col-sm-4 col-form-label">ログインID</label>
+					  <label for="loginId" class="col-sm-4 col-form-label">ログインID*</label>
 					  <div class="col-sm-8">
 					    <input type="text" class="form-control" name="loginId">
 					  </div>
@@ -31,7 +33,7 @@
 
 					<!-- パスワード -->
 					<div class="form-group row">
-					  <label for="password" class="col-sm-4 col-form-label">パスワード</label>
+					  <label for="password" class="col-sm-4 col-form-label">パスワード*</label>
 					  <div class="col-sm-8">
 					    <input type="password" class="form-control" name="password" placeholder="">
 					  </div>
@@ -39,7 +41,7 @@
 
 					<!-- パスワード(確認) -->
 					<div class="form-group row">
-					  <label for="passwordCheck" class="col-sm-4 col-form-label">パスワード(確認)</label>
+					  <label for="passwordCheck" class="col-sm-4 col-form-label">パスワード(確認)*</label>
 					  <div class="col-sm-8">
 					    <input type="password" class="form-control" name="passwordCheck" placeholder="">
 					  </div>
@@ -47,7 +49,7 @@
 
 					<!-- 名前 -->
 					<div class="form-group row">
-					  <label for="name" class="col-sm-4 col-form-label">名前</label>
+					  <label for="name" class="col-sm-4 col-form-label">名前*</label>
 					  <div class="col-sm-8">
 					    <input type="text" class="form-control" name="name">
 					  </div>
@@ -55,7 +57,7 @@
 
 					<!-- 性別 -->
 					<div class="form-group row">
-						<label for="sex" class="col-sm-4 col-form-label">性別</label>
+						<label for="sex" class="col-sm-4 col-form-label">性別*</label>
 						<div class="col-sm-8 text-left">
 							<div class="form-check form-check-inline">
 							  <input class="form-check-input" type="radio" name="sex" id="sex1" value="男">
@@ -70,7 +72,7 @@
 
 					<!-- 宣材写真 -->
 					<div class="form-group row">
-						<label for="photo" class="col-sm-4 col-form-label">宣材写真</label>
+						<label for="photo" class="col-sm-4 col-form-label">宣材写真*</label>
 						<div class="col-sm-8 text-left">
 							<div class="custom-file">
 							  <input type="file" name="photo" class="custom-file-input" id="customFile">
@@ -81,7 +83,7 @@
 
 					<!-- 所属形態 -->
 					<div class="form-group row">
-						<label for="affiliation_form" class="col-sm-4 col-form-label">所属形態</label>
+						<label for="affiliation_form" class="col-sm-4 col-form-label">所属形態*</label>
 						<div class="col-sm-8 text-left">
 							<div class="form-check form-check-inline">
 							  <input class="form-check-input" type="radio" name="affiliation_form" id="inlineRadio1" value="所属">
@@ -104,7 +106,7 @@
 
 					<!-- 生年月日 -->
 					<div class="form-group row" id="datepicker-default">
-					  <label for="birth_date" class="col-sm-4 col-form-label">生年月日</label>
+					  <label for="birth_date" class="col-sm-4 col-form-label">生年月日*</label>
 					  <div class="col-sm-8 text-left form-inline">
 					    <input type="date" width="276" name="birth_date">
 					  </div>
@@ -112,58 +114,14 @@
 
 					<!-- 出身地 -->
 					<div class="form-group row">
-					  <label for="birth_place" class="col-sm-4 col-form-label">出身地</label>
+					  <label for="birth_place" class="col-sm-4 col-form-label">出身地*</label>
 					    <div class="col-sm-8 text-left">
 							<select class="form-control" name="birth_place_id">
-								<option>選択してください</option>
+								<option value="0">選択してください</option>
 								<optgroup label="--- 都道府県 ---">
-									<option value="1">北海道</option>
-									<option value="2">青森県</option>
-									<option value="3">岩手県</option>
-									<option value="4">宮城県</option>
-									<option value="5">秋田県</option>
-									<option value="6">山形県</option>
-									<option value="7">福島県</option>
-									<option value="8">茨城県</option>
-									<option value="9">栃木県</option>
-									<option value="10">群馬県</option>
-									<option value="11">埼玉県</option>
-									<option value="12">千葉県</option>
-									<option value="13">東京都</option>
-									<option value="14">神奈川県</option>
-									<option value="15">新潟県</option>
-									<option value="16">富山県</option>
-									<option value="17">石川県</option>
-									<option value="18">福井県</option>
-									<option value="19">山梨県</option>
-									<option value="20">長野県</option>
-									<option value="21">岐阜県</option>
-									<option value="22">静岡県</option>
-									<option value="23">愛知県</option>
-									<option value="24">三重県</option>
-									<option value="25">滋賀県</option>
-									<option value="26">京都府</option>
-									<option value="27">大阪府</option>
-									<option value="28">兵庫県</option>
-									<option value="29">奈良県</option>
-									<option value="30">和歌山県</option>
-									<option value="31">鳥取県</option>
-									<option value="32">島根県</option>
-									<option value="33">岡山県</option>
-									<option value="34">広島県</option>
-									<option value="35">山口県</option>
-									<option value="36">徳島県</option>
-									<option value="37">香川県</option>
-									<option value="38">愛媛県</option>
-									<option value="39">高知県</option>
-									<option value="40">福岡県</option>
-									<option value="41">佐賀県</option>
-									<option value="42">長崎県</option>
-									<option value="43">熊本県</option>
-									<option value="44">大分県</option>
-									<option value="45">宮崎県</option>
-									<option value="46">鹿児島県</option>
-									<option value="47">沖縄県</option>
+									<c:forEach var="pdb" items="${pdbList}">
+										<option value="${pbd.id}">${pdb.name}</option>
+									</c:forEach>
 								</optgroup>
 							</select>
 						</div>
@@ -171,7 +129,7 @@
 
 					<!-- 血液型 -->
 					<div class="form-group row">
-						<label for="inputAttribute" class="col-sm-4 col-form-label">血液型</label>
+						<label for="inputAttribute" class="col-sm-4 col-form-label">血液型*</label>
 						<div class="col-sm-8 text-left">
 							<div class="form-check form-check-inline">
 							  <input class="form-check-input" type="radio" name="blood_type" id="inlineRadio1" value="A型">
@@ -194,24 +152,30 @@
 
 					<!-- 声域 -->
 					<div class="form-group row">
-					  <label for="vocal_range" class="col-sm-4 col-form-label">声域</label>
+					  <label for="vocal_range" class="col-sm-4 col-form-label">声域*</label>
 					    <div class="col-sm-8 text-left">
 							<select class="form-control" name="vocal_range">
-							  <option>選択してください</option>
+							  <option value="0">選択してください</option>
 							  <optgroup label="--- 女声 ---">
-								  <option value="1">ソプラノ</option>
-								  <option value="2">メゾソプラノ</option>
-								  <option value="3">アルト</option>
+								  <c:forEach var="vrdb" items="${vrdbList}">
+									<c:if test="${vrdb.category == '女声'}">
+										<option value="${vrdb.id}">${vrdb.name}</option>
+									</c:if>
+								</c:forEach>
 							  </optgroup>
 							  <optgroup label="--- 男声 ---">
-								  <option value="4">ソプラニスタ</option>
-								  <option value="5">カウンターテノール</option>
-								  <option value="6">テノール</option>
-								  <option value="7">バリトン</option>
-								  <option value="8">バス</option>
+								  <c:forEach var="vrdb" items="${vrdbList}">
+									<c:if test="${vrdb.category == '男声'}">
+										<option value="${vrdb.id}">${vrdb.name}</option>
+									</c:if>
+								</c:forEach>
 							  </optgroup>
 							  <optgroup label="--- 少年 ---">
-								  <option value="9">ボーイソプラノ</option>
+								  <c:forEach var="vrdb" items="${vrdbList}">
+									<c:if test="${vrdb.category == '少年'}">
+										<option value="${vrdb.id}">${vrdb.name}</option>
+									</c:if>
+								</c:forEach>
 							  </optgroup>
 							</select>
 						</div>
@@ -219,7 +183,7 @@
 
 					<!-- 特技 -->
 					<div class="form-group row">
-					  <label for="special_skill" class="col-sm-4 col-form-label">特技</label>
+					  <label for="special_skill" class="col-sm-4 col-form-label">特技*</label>
 					  <div class="col-sm-8">
 					    <input type="text" class="form-control" name="special_skill">
 					  </div>
@@ -227,7 +191,7 @@
 
 					<!-- 趣味 -->
 					<div class="form-group row">
-					  <label for="hobby" class="col-sm-4 col-form-label">趣味</label>
+					  <label for="hobby" class="col-sm-4 col-form-label">趣味*</label>
 					  <div class="col-sm-8">
 					    <input type="text" class="form-control" name="hobby">
 					  </div>
@@ -258,11 +222,11 @@
 
 					<!-- 主な出演作品 -->
 					<div class="form-group row">
-						<label for="inputName" class="col-sm-4 col-form-label">主な出演作品</label>
+						<label for="filmographies_anime" class="col-sm-4 col-form-label">主な出演作品</label>
 						<div class="col-sm-8">
 						  <div class="form-row">
 						    <div class="col">
-						      <label for="inputState">アニメ</label>
+						      <label for="filmographies_anime">アニメ</label>
 						    </div>
 						    <div class="col">
 						    </div>
@@ -275,11 +239,11 @@
 					    </div>
 				    </div>
 				    <div class="form-group row">
-						<label for="inputName" class="col-sm-4 col-form-label"></label>
+						<label for="filmographies_film" class="col-sm-4 col-form-label"></label>
 						<div class="col-sm-8">
 						  <div class="form-row">
 						    <div class="col">
-						      <label for="inputState">映画</label>
+						      <label for="filmographies_film">映画</label>
 						    </div>
 						    <div class="col">
 						    </div>
@@ -292,11 +256,11 @@
 					    </div>
 				    </div>
 				    <div class="form-group row">
-						<label for="inputName" class="col-sm-4 col-form-label"></label>
+						<label for="filmographies_narration" class="col-sm-4 col-form-label"></label>
 						<div class="col-sm-8">
 						  <div class="form-row">
 						    <div class="col">
-						      <label for="inputState">ナレーション</label>
+						      <label for="filmographies_narration">ナレーション</label>
 						    </div>
 						    <div class="col">
 						    </div>
@@ -309,11 +273,11 @@
 					    </div>
 				    </div>
 				    <div class="form-group row">
-						<label for="inputName" class="col-sm-4 col-form-label"></label>
+						<label for="filmographies_other" class="col-sm-4 col-form-label"></label>
 						<div class="col-sm-8">
 						  <div class="form-row">
 						    <div class="col">
-						      <label for="inputState">その他</label>
+						      <label for="filmographies_other">その他</label>
 						    </div>
 						    <div class="col">
 						    </div>
@@ -337,6 +301,9 @@
 					<br>
 					<!-- 送信ボタン -->
 					<button type="submit" class="btn btn-secondary">送信</button>
+					<br>
+					<br>
+					<p><a href="Login">戻る</a></p>
 
 				</form>
 			</div>

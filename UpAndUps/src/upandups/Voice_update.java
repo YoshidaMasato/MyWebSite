@@ -1,12 +1,15 @@
 package upandups;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import beans.VoiceSampleDataBeans;
 
 /**
  * Servlet implementation class Voice_update
@@ -27,6 +30,10 @@ public class Voice_update extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// スコープのidにある値を受け取ってボイスデータを取得
+		String id = request.getParameter("id");
+		ArrayList<VoiceSampleDataBeans> vsdbList = VoiceSampleDAO.
+
 		request.getRequestDispatcher(UauHelper.VOICE_UPDATE_PAGE).forward(request, response);
 	}
 

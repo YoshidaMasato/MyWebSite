@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="ja">
 	<head>
@@ -19,48 +21,48 @@
 				<table class="table">
 				  <tbody>
 				    <tr>
-				      <th rowspan="10" class="thph"><img alt="" src="./images/matsui_naoko-300x500.jpg"></th>
+				      <th rowspan="10" class="thph"><img alt="" src="./images/${uddb.photo_url}"></th>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">名　前</td>
 				      <td>
 				      	<ruby>
-				      	松井&nbsp;菜桜子<rp>（</rp><rt>まつい&nbsp;なおこ</rt><rp>）</rp>
+				      	${uddb.name}<rp>（</rp><rt>まつい&nbsp;なおこ</rt><rp>）</rp>
 				      	</ruby>
 				      </td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">誕生日</td>
-				      <td>4月4日</td>
+				      <td>${uddb.birth_date_format}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">出身地</td>
-				      <td>北海道</td>
+				      <td>${uddb.prefectures_name}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">血液型</td>
-				      <td>A型</td>
+				      <td>${uddb.blood_type}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">声　域</td>
-				      <td>ソプラノ</td>
+				      <td>${uddb.vocal_range}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">特　技</td>
-				      <td>歌唱・謎解き</td>
+				      <td>${uddb.special_skill}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">趣　味</td>
-				      <td>料理・油絵</td>
+				      <td>${uddb.hobby}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">免　許</td>
-				      <td>特になし</td>
+				      <td>${uddb.license}</td>
 				    </tr>
 				    <tr>
 				      <td style="background-color: #eee">Twitter</td>
 				      <td>
-				        <a href="https://twitter.com/42kg"><img src="./images/tw.png" alt="tw" width="28" height="28" class="alignleft size-full wp-image-301">@42kg</a>
+				        <a href="${uddb.twitter_url}"><img src="./images/tw.png" alt="tw" width="28" height="28" class="alignleft size-full wp-image-301">${uddb.twitter_id}</a>
 				      </td>
 				    </tr>
 				  </tbody>
@@ -79,46 +81,18 @@
 				</div>
 				<table class="table">
 				  <tbody>
-				    <tr>
-				      <td style="background-color: #eee">自己紹介</td>
-				      <td>
-						<div class="media-wrapper">
-							<audio id="player2" preload="none" controls style="max-width:100%;">
-						        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
-						    </audio>
-						</div>
-					  </td>
-				    </tr>
-				    <tr>
-				      <td style="background-color: #eee">ナレーションサンプル1</td>
-				      <td>
-					      <div class="media-wrapper">
-							<audio id="player2" preload="none" controls style="max-width:100%;">
-						        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
-						    </audio>
-						</div>
-					  </td>
-				    </tr>
-				    <tr>
-				      <td style="background-color: #eee">テレビナレーション</td>
-				      <td>
-					      <div class="media-wrapper">
-							<audio id="player2" preload="none" controls style="max-width:100%;">
-						        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
-						    </audio>
-						</div>
-					  </td>
-				    </tr>
-				    <tr>
-				      <td style="background-color: #eee">ラジオCM</td>
-				      <td>
-					      <div class="media-wrapper">
-							<audio id="player2" preload="none" controls style="max-width:100%;">
-						        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
-						    </audio>
-						</div>
-					  </td>
-				    </tr>
+				   <c:forEach var="uvdb" items="uvdbList">
+					    <tr>
+					      <td style="background-color: #eee">自己紹介</td>
+					      <td>
+							<div class="media-wrapper">
+								<audio id="player2" preload="none" controls style="max-width:100%;">
+							        <source src="http://www.largesound.com/ashborytour/sound/AshboryBYU.mp3" type="audio/mp3">
+							    </audio>
+							</div>
+						  </td>
+					    </tr>
+				    </c:forEach>
 				  </tbody>
 				</table>
 			</div>
@@ -140,9 +114,7 @@
 				<hr style="margin-top: 0">
 				<!-- /タイトル -->
 				<ul class="text-left">
-					<li>「名探偵コナン」（鈴木園子役）</li>
-					<li>「ハピネスチャージプリキュア！」（妖精リボン役）</li>
-					<li>「ONE PIECE」（モネ役）</li>
+					${uddb.filmographies_anime}
 				</ul>
 
 				<br>

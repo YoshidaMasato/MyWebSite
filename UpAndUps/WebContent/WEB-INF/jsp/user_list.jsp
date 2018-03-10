@@ -39,7 +39,7 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <c:forEach var="udb" items="udbList">
+			    <c:forEach var="udb" items="${udbList}">
 				    <tr>
 				      <th scope="row">${udb.id}</th>
 				      <td>${udb.login_id}</td>

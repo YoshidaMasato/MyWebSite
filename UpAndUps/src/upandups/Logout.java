@@ -1,7 +1,7 @@
 package upandups;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import beans.UserDataBeans;
-import dao.UserDAO;
-
 /**
- * Servlet implementation class User_list
+ * Servlet implementation class Logout
  */
-@WebServlet("/User_list")
-public class User_list extends HttpServlet {
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public User_list() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +29,14 @@ public class User_list extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// セッションが空の場合、ログイン画面に変遷
-		HttpSession session = request.getSession();
-		if(session.getAttribute("udb") == null) {
-			response.sendRedirect("Login");
-			return;
-		}
+		response.setContentType("text/html; charset=Shift_JIS");
+        PrintWriter out = response.getWriter();
 
-		// 全ユーザ情報を取得してリクエストスコープにセット
-		ArrayList<UserDataBeans> udbList = UserDAO.getUserDataBeansFindAll();
-		request.setAttribute("udbList", udbList);
+        HttpSession session = request.getSession(true);
+        session.invalidate();
 
-		//ユーザ一覧にフォワード
-		request.getRequestDispatcher(UauHelper.USER_LIST_PAGE).forward(request, response);
+        request.setAttribute("LogoutMsg", "ログアウトしました。");
+        response.sendRedirect("Login");
 	}
 
 	/**

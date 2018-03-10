@@ -54,7 +54,7 @@ public class UserDAO {
 
 		try {
 			con = DBManager.getConnection();
-			st = con.prepareStatement("SELECT * FROM user");
+			st = con.prepareStatement("SELECT * FROM user WHERE login_id NOT IN ('admin')");
 			ResultSet rs = st.executeQuery();
 
 			ArrayList<UserDataBeans> udbList = new ArrayList<UserDataBeans>();

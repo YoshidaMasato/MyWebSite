@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<div class="text-right">
-		<a href="login.html">
+		<a href="Logout">
 		<img alt="" src="./images/logout.png" width="40px">
 		</a>
 	</div>

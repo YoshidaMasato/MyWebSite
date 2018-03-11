@@ -173,7 +173,7 @@ public class UserDetailDAO {
 				return false;
 			}
 
-			if(login_id.equals("") || passMD5.equals("") || passCheckMD5.equals("") || name.equals("") || sex.equals("") || photo_url.equals("") || affiliation_form.equals("") || birth_date.equals("") || birth_place_id.equals("") || blood_type.equals("") || vocal_range_id.equals("") || special_skill.equals("") || hobby.equals("")) {
+			if(login_id.equals("") || passMD5.equals("") || passCheckMD5.equals("") || name.equals("") || sex == null || photo_url == null || affiliation_form == null || birth_date.equals("") || blood_type == null || special_skill.equals("") || hobby.equals("")) {
 				// 未入力の必須項目があればfalseを返す。
 				return false;
 			}

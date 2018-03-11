@@ -24,7 +24,7 @@ import dao.VocalRangeDAO;
  * Servlet implementation class User_update
  */
 @WebServlet("/User_update")
-@MultipartConfig(location="/C:\\Users\\s9922\\Documents\\MyWebSite\\UpAndUps\\WebContent\\uploaded", maxFileSize=1048576)
+@MultipartConfig(location="/C:\\Users\\s9922\\Documents\\MyWebSite\\UpAndUps\\WebContent\\uploaded", maxFileSize=10485760)
 public class User_update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

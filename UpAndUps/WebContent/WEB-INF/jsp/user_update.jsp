@@ -63,11 +63,11 @@
 						<div class="col-sm-8 text-left">
 							<c:if test="${uddb.sex == '男'}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="sex" id="sex1" value="option1" checked="checked">
+								  <input class="form-check-input" type="radio" name="sex" id="sex1" value="男" checked="checked">
 								  <label class="form-check-label" for="sex1">男</label>
 								</div>
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="sex" id="sex2" value="option2">
+								  <input class="form-check-input" type="radio" name="sex" id="sex2" value="女">
 								  <label class="form-check-label" for="inlineRadio2">女</label>
 								</div>
 							</c:if>
@@ -211,56 +211,56 @@
 							<c:if test="${uddb.blood_type == 'A型'}" var="btFlgA" />
 							<c:if test="${btFlgA}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio1" value="A型" checked="checked">
-								  <label class="form-check-label" for="inlineRadio1">A型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeA" value="A型" checked="checked">
+								  <label class="form-check-label" for="bloodtypeA">A型</label>
 								</div>
 							</c:if>
 							<c:if test="${!btFlgA}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio1" value="A型">
-								  <label class="form-check-label" for="inlineRadio1">A型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeA" value="A型">
+								  <label class="form-check-label" for="bloodtypeA">A型</label>
 								</div>
 							</c:if>
 
 							<c:if test="${uddb.blood_type == 'B型'}" var="btFlgB" />
 							<c:if test="${btFlgB}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio2" value="B型" checked="checked">
-								  <label class="form-check-label" for="inlineRadio2">B型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeB" value="B型" checked="checked">
+								  <label class="form-check-label" for="bloodtypeB">B型</label>
 								</div>
 							</c:if>
 							<c:if test="${!btFlgB}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio2" value="B型">
-								  <label class="form-check-label" for="inlineRadio2">B型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeB" value="B型">
+								  <label class="form-check-label" for="bloodtypeB">B型</label>
 								</div>
 							</c:if>
 
 							<c:if test="${uddb.blood_type == 'O型'}" var="btFlgO" />
 							<c:if test="${btFlgO}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio3" value="O型" checked="checked">
-								  <label class="form-check-label" for="inlineRadio3">O型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeO" value="O型" checked="checked">
+								  <label class="form-check-label" for="bloodtypeO">O型</label>
 								</div>
 							</c:if>
 							<c:if test="${!btFlgO}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio3" value="O型">
-								  <label class="form-check-label" for="inlineRadio3">O型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeO" value="O型">
+								  <label class="form-check-label" for="bloodtypeO">O型</label>
 								</div>
 							</c:if>
 
 							<c:if test="${uddb.blood_type == 'AB型'}" var="btFlgAB" />
 							<c:if test="${btFlgAB}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio4" value="AB型" checked="checked">
-								  <label class="form-check-label" for="inlineRadio4">AB型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeAB" value="AB型" checked="checked">
+								  <label class="form-check-label" for="bloodtypeAB">AB型</label>
 								</div>
 							</c:if>
 							<c:if test="${!btFlgAB}">
 								<div class="form-check form-check-inline">
-								  <input class="form-check-input" type="radio" name="bloodtype" id="inlineRadio4" value="AB型">
-								  <label class="form-check-label" for="inlineRadio4">AB型</label>
+								  <input class="form-check-input" type="radio" name="bloodtype" id="bloodtypeAB" value="AB型">
+								  <label class="form-check-label" for="bloodtypeAB">AB型</label>
 								</div>
 							</c:if>
 
@@ -368,7 +368,7 @@
 						  </div>
 						  <div class="form-row">
 						    <div class="col">
-						      <textarea name="filmographies_anime" class="form-control" id="exampleFormControlTextarea1" rows="3">${uddb.filmographies_anime}</textarea>
+						      <textarea name="filmographies_anime" class="form-control" id="filmographies_anime" rows="3">${uddb.filmographies_anime}</textarea>
 						    </div>
 					      </div>
 					    </div>
@@ -385,7 +385,7 @@
 						  </div>
 						  <div class="form-row">
 						    <div class="col">
-						      <textarea name="filmographies_film" class="form-control" id="exampleFormControlTextarea1" rows="3">${uddb.filmographies_film}</textarea>
+						      <textarea name="filmographies_film" class="form-control" id="filmographies_film" rows="3">${uddb.filmographies_film}</textarea>
 						    </div>
 					      </div>
 					    </div>
@@ -402,7 +402,7 @@
 						  </div>
 						  <div class="form-row">
 						    <div class="col">
-						      <textarea name="filmographies_narration" class="form-control" id="exampleFormControlTextarea1" rows="3">${uddb.filmographies_narration}</textarea>
+						      <textarea name="filmographies_narration" class="form-control" id="filmographies_narration" rows="3">${uddb.filmographies_narration}</textarea>
 						    </div>
 					      </div>
 					    </div>
@@ -419,7 +419,7 @@
 						  </div>
 						  <div class="form-row">
 						    <div class="col">
-						      <textarea name="filmographies_other" class="form-control" id="exampleFormControlTextarea1" rows="3">${uddb.filmographies_other}</textarea>
+						      <textarea name="filmographies_other" class="form-control" id="filmographies_other" rows="3">${uddb.filmographies_other}</textarea>
 						    </div>
 					      </div>
 					    </div>

@@ -19,17 +19,17 @@
 
 			<div class="row">
 				<div class="col-12">
-					<p>ユーザ：松井 菜桜子</p>
+					<p>ユーザ：${udb.name}</p>
 					<p>を削除しますか？</p>
 				</div>
 				<div class="col-3 offset-3">
-					<form action="user_list.html" method="post">
+					<form action="User_delete" method="post">
+						<input type="hidden" name="id" value="${udb.id}">
 						<input type="submit" class="btn btn-danger" style="width: 80%" value="削除">
-						<input type="hidden" name="id" value="${user.id}">
 					</form>
 				</div>
 				<div class="col-3">
-					<a href="user_list.html">
+					<a href="User_list">
 						<button type="button" class="btn btn-dark" style="width: 80%">キャンセル</button>
 					</a>
 				</div>

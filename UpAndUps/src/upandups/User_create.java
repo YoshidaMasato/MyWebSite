@@ -17,6 +17,7 @@ import beans.UserDataBeans;
 import beans.UserDetailDataBeans;
 import beans.VocalRangeDataBeans;
 import dao.PrefecturesDAO;
+import dao.UserDAO;
 import dao.UserDetailDAO;
 import dao.VocalRangeDAO;
 
@@ -24,7 +25,7 @@ import dao.VocalRangeDAO;
  * Servlet implementation class User_create
  */
 @WebServlet("/User_create")
-@MultipartConfig(location="/C:\\Users\\s9922\\Documents\\MyWebSite\\UpAndUps\\WebContent\\uploaded", maxFileSize=1048576)
+@MultipartConfig(location="/C:\\Users\\s9922\\Documents\\MyWebSite\\UpAndUps\\WebContent\\uploaded", maxFileSize=10485760)
 public class User_create extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -67,7 +68,7 @@ public class User_create extends HttpServlet {
 		String affiliation_form = request.getParameter("affiliation_form");
 		String birth_date = request.getParameter("birth_date");
 		String birth_place_id = request.getParameter("birth_place_id");
-		String blood_type = request.getParameter("blood_type");
+		String blood_type = request.getParameter("bloodtype");
 		String vocal_range_id = request.getParameter("vocal_range");
 		String special_skill = request.getParameter("special_skill");
 		String hobby = request.getParameter("hobby");
@@ -122,34 +123,46 @@ public class User_create extends HttpServlet {
 				, cPassMD5
 				);
 
-		// 入力されていた値をBeansにセット
-		UserDataBeans udb = new UserDataBeans();
-		udb.setLogin_id(login_id);
-		udb.setName(name);
-
-		UserDetailDataBeans uddb = new UserDetailDataBeans();
-		uddb.setSex(sex);
-		uddb.setAffiliation_form(affiliation_form);
-		uddb.setBirth_date(birth_date);
-		uddb.setBirth_place_id(Integer.parseInt(birth_place_id));
-		uddb.setBlood_type(blood_type);
-		uddb.setVocal_range_id(Integer.parseInt(vocal_range_id));
-		uddb.setSpecial_skill(special_skill);
-		uddb.setHobby(hobby);
-		uddb.setLicense(license);
-		uddb.setTwitter_url(twitter_url);
-		uddb.setTwitter_id(twitter_id);
-		uddb.setFilmographies_anime(filmographies_anime);
-		uddb.setFilmographies_film(filmographies_film);
-		uddb.setFilmographies_narration(filmographies_narration);
-		uddb.setFilmographies_other(filmographies_other);
-
 		if(!create) {
 			request.setAttribute("errMsg", "入力された内容が正しくないか、未入力の必須項目があります。");
+
+			// 入力されていた値をBeansにセット
+			UserDataBeans udb = new UserDataBeans();
+			udb.setLogin_id(login_id);
+			udb.setName(name);
+
+			UserDetailDataBeans uddb = new UserDetailDataBeans();
+			uddb.setSex(sex);
+			uddb.setAffiliation_form(affiliation_form);
+			uddb.setBirth_date(birth_date);
+			uddb.setBirth_place_id(Integer.parseInt(birth_place_id));
+			uddb.setBlood_type(blood_type);
+			uddb.setVocal_range_id(Integer.parseInt(vocal_range_id));
+			uddb.setSpecial_skill(special_skill);
+			uddb.setHobby(hobby);
+			uddb.setLicense(license);
+			uddb.setTwitter_url(twitter_url);
+			uddb.setTwitter_id(twitter_id);
+			uddb.setFilmographies_anime(filmographies_anime);
+			uddb.setFilmographies_film(filmographies_film);
+			uddb.setFilmographies_narration(filmographies_narration);
+			uddb.setFilmographies_other(filmographies_other);
+
+			// prefecturesテーブルのリストを取得してスコープにセット
+			ArrayList<PrefecturesDataBeans> pdbList = PrefecturesDAO.getPrefecturesDataBeansAll();
+			request.setAttribute("pdbList", pdbList);
+
+			// vocal_rangeテーブルのリストを取得してスコープにセット
+			ArrayList<VocalRangeDataBeans> vrdbList = VocalRangeDAO.getVocalRangeDataBeansAll();
+			request.setAttribute("vrdbList", vrdbList);
+
 			request.setAttribute("udb", udb);
 			request.setAttribute("uddb", uddb);
 			request.getRequestDispatcher(UauHelper.USER_CREATE_PAGE).forward(request, response);
 		} else {
+			// 入力された値を元にDBでユーザ検索し、ユーザ情報を取得
+			UserDataBeans udb = UserDAO.getUserDataBeansByLoginId(login_id,passMD5);
+
 			//ユーザ情報をセッションスコープにセットしてユーザ一覧にリダイレクト
 			HttpSession session = request.getSession();
 			session.setAttribute("login_udb", udb);
